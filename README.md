@@ -6,117 +6,64 @@ This project is designed with clean architecture, modular design, and explainabl
 
 🚀 Features
 🔹 Market Data Collection
-
-Fetches real-time and historical stock data using Yahoo Finance (yfinance)
-
-Retrieves both price data and fundamental metrics
+- Fetches real-time and historical stock data using Yahoo Finance (yfinance)
+- Retrieves both price data and fundamental metrics
 
 🔹 Technical Analysis (Rule-Based)
-
-Indicators used:
-
-Simple Moving Average (SMA 20, SMA 50)
-
-Relative Strength Index (RSI)
-
-MACD
+- Indicators used:
+- Simple Moving Average (SMA 20, SMA 50)
+- Relative Strength Index (RSI)
+- MACD
 
 Clear rule-based signals:
-
-Bullish / Bearish / Neutral
-
-Score-based evaluation for trend strength
-
+- Bullish / Bearish / Neutral
+  
 🔹 Fundamental Analysis (Rule-Based)
-
 Valuation metrics:
-
 PE Ratio, Price to Book
 
 Profitability:
-
 ROE, Net Profit Margin
 
 Liquidity:
-
 Current Ratio, Quick Ratio
 
 Debt Management:
-
 Debt to Equity
 
 Cash Flow & Dividend metrics
 
-Intrinsic value estimation
-
-Scoring system to derive:
-
-Strong Bullish / Bullish / Neutral / Bearish / Strong Bearish
-
 🔹 AI-Generated Insights (LLM)
-
-Uses Gemini (free tier) as the LLM
-
-LLM does not perform analysis
+- Uses Gemini (free tier) as the LLM
+- LLM does not perform analysis
 
 LLM only:
-
-Interprets already-computed indicators
-
-Generates human-readable summaries
-
-Produces actionable insights
+- Interprets already-computed indicators
+- Generates human-readable summaries
+- Produces actionable insights
 
 ⚠️ Analysis logic is fully deterministic and explainable.
 AI is used only for narration, not decision-making.
 
 🖥️ Streamlit Dashboard
-
 The Streamlit UI provides:
-
-Stock symbol input
-
-Technical signal overview
-
-Fundamental summary
-
-AI-generated analyst view
-
-Clean, readable output for retail investors
-
-Design Philosophy
-
-Explainability over hype
-
-Rules before AI
-
-Separation of concerns
-
-Production-ready structure
-
-Agentic architecture without overengineering
+- Stock symbol input
+- Technical signal overview
+- Fundamental summary
+- AI-generated analyst view
+- Clean, readable output for retail investors
+- Design Philosophy
+- Explainability over hype
+- Rules before AI
+- Separation of concerns
+- Production-ready structure
+- Agentic architecture without overengineering
 
 This project intentionally avoids:
-
-Blind ML predictions
-
-Overfitting
-
-Uninterpretable outputs
-
-📈 Future Improvements
-
-Confidence score (0–100)
-
-Time-horizon tagging (short / mid / long term)
-
-Backtesting engine
-
-Portfolio-level analysis
-
-Alerts & notifications
+- Blind ML predictions
+- Overfitting
+- Uninterpretable outputs
 
 👨‍💻 Author
-
 Nilesh Mehta
 AI-ML Engineer
