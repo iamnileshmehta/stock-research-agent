@@ -1,4 +1,4 @@
-# stock-research-agent
+# 📊 Stock Research Agent (AI-Assisted Stock Analysis)
 
 An end-to-end rule-based stock research system that combines technical analysis, fundamental analysis, and LLM-generated insights to produce actionable stock market reports.
 
