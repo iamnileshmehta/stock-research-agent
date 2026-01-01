@@ -5,11 +5,12 @@ An end-to-end rule-based stock research system that combines technical analysis,
 This project is designed with clean architecture, modular design, and explainable logic, focusing on engineering discipline rather than black-box AI.
 
 🚀 Features
-🔹 Market Data Collection
+
+Market Data Collection
 - Fetches real-time and historical stock data using Yahoo Finance (yfinance)
 - Retrieves both price data and fundamental metrics
 
-🔹 Technical Analysis (Rule-Based)
+Technical Analysis (Rule-Based)
 - Indicators used:
 - Simple Moving Average (SMA 20, SMA 50)
 - Relative Strength Index (RSI)
@@ -18,22 +19,14 @@ This project is designed with clean architecture, modular design, and explainabl
 Clear rule-based signals:
 - Bullish / Bearish / Neutral
   
-🔹 Fundamental Analysis (Rule-Based)
-Valuation metrics:
-PE Ratio, Price to Book
+Fundamental Analysis (Rule-Based)
+- Valuation metrics: PE Ratio, Price to Book
+- Profitability: ROE, Net Profit Margin
+- Liquidity: Current Ratio, Quick Ratio
+- Debt Management: Debt to Equity
+- Cash Flow & Dividend metrics
 
-Profitability:
-ROE, Net Profit Margin
-
-Liquidity:
-Current Ratio, Quick Ratio
-
-Debt Management:
-Debt to Equity
-
-Cash Flow & Dividend metrics
-
-🔹 AI-Generated Insights (LLM)
+AI-Generated Insights (LLM)
 - Uses Gemini (free tier) as the LLM
 - LLM does not perform analysis
 
