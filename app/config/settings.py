@@ -1,2 +1,2 @@
-LLM_PROVIDER = "gemini"   # "gemini", "openai" (future)
-model = "gemini-2.5-flash"
+LLM_PROVIDER = "groq"   # "gemini", "openai" (future)
+model = "llama-3.3-70b-versatile"

@@ -5,6 +5,9 @@ def generate_technical_summary(tech):
     momentum = tech["momentum"]
     macd = tech["macd"]
     bollinger = tech["bollinger"]
+    support_resistance = tech["support_resistance"]
+    volume = tech["volume"]
+    sentiment = tech["sentiment"]
 
     summary = []
 
@@ -23,16 +26,36 @@ def generate_technical_summary(tech):
     )
 
     summary.append(
-        f"The current price is {bollinger['signal']} the upper Bollinger Band ({bollinger['Bollinger_High']})."
+        f"Bollinger Bands show price is {bollinger['signal']} "
+        f"(upper: {bollinger['Bollinger_High']}, lower: {bollinger['Bollinger_Low']})."
+    )
+
+    summary.append(
+        f"Support is near {support_resistance['support']} and resistance near {support_resistance['resistance']} "
+        f"(signal: {support_resistance['signal']})."
+    )
+
+    summary.append(
+        f"Volume is {volume['volume_ratio']}x its 20-day average with a "
+        f"{volume['price_change_1d']} one-day price move, suggesting {volume['signal']}."
+    )
+
+    summary.append(
+        f"Market sentiment ({sentiment['source']}) is {sentiment['signal']} "
+        f"with score {sentiment['value']}."
     )
 
     confidence = calculate_confidence([
-    trend,
-    momentum,
-    macd,
-    bollinger
-])
+        trend["score"],
+        momentum["score"],
+        macd["score"],
+        bollinger["score"],
+        support_resistance["score"],
+        volume["score"],
+        sentiment["score"],
+    ])
 
+    summary.append(f"Technical confidence: {confidence}%")
     return "\n".join(summary)
 
 

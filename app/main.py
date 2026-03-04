@@ -18,7 +18,7 @@ from app.utils.currency import format_currency_babel
 
 load_dotenv()
 
-def run_analysis(symbol: str):
+def run_analysis(symbol: str, market_sentiment_score: float | None = None):
 
     # Load LLM
     llm = get_llm()
@@ -27,22 +27,32 @@ def run_analysis(symbol: str):
     data = get_stock_data(symbol)
 
     # Fetch fundamental data
-    fundamental_data = get_fundamental_data(symbol)
+    # fundamental_data = get_fundamental_data(symbol)
 
     
     # Compute fundamental indicators
-    fundamental = compute_fundamental_indicators(fundamental_data["fundamental_data"])
-    fundamental = clean_numbers(fundamental)
+    # fundamental = compute_fundamental_indicators(fundamental_data["fundamental_data"])
+    # fundamental = clean_numbers(fundamental)
 
     # Compute technical indicators
-    technical = compute_technical_indicators(data["price_data"])
+    technical = compute_technical_indicators(
+        data["price_data"], market_sentiment_score=market_sentiment_score
+    )
     technical = clean_numbers(technical)
 
     # Generate financial report
-    report = generate_financial_report(fundamental)
+    # report = generate_financial_report(fundamental)
 
     # Generate technical signal
-    signal = final_signal(technical["trend"], technical["momentum"], technical["macd"], technical["bollinger"])
+    signal = final_signal(
+        technical["trend"],
+        technical["momentum"],
+        technical["macd"],
+        technical["bollinger"],
+        technical["support_resistance"],
+        technical["volume"],
+        technical["sentiment"],
+    )
     print("Overall Technical Signal:", signal)
 
 
@@ -52,18 +62,18 @@ def run_analysis(symbol: str):
     "fundamental": "Long-term (6–24 months)",
     "combined": "Medium-term (1–6 months)"
 }
-    report["time_horizon"] = time_horizon
+    # report["time_horizon"] = time_horizon
 
 
     # Generate technical summary
     technical_summary = generate_technical_summary(technical)
     # Generate financial summary
-    financial_summary = generate_financial_summary(fundamental)
+    # financial_summary = generate_financial_summary(fundamental)
 
     # ask LLM for actionable insights
     prompt = (
         "Based on the following fundamental and technical analysis summary, provide actionable stock trading insights:\n\n"
-        f"{financial_summary, technical_summary}\n\n"
+        f"{technical_summary}\n\n"
         "Please provide concise and clear recommendations."
     )  
 
@@ -71,9 +81,7 @@ def run_analysis(symbol: str):
 
     return {
         "technical_summary": technical_summary,
-        "financial_summary": financial_summary,
         "signal": signal,
-        "report": report,
         "response": response
     }
 
