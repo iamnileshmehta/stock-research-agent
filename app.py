@@ -43,7 +43,7 @@ def build_chat_prompt(user_message: str) -> str:
         "You are a stock research assistant. Answer clearly and concisely.\n"
         f"Use the analysis below for {symbol} as your primary context.\n\n"
         f"Technical Summary:\n{result['technical_summary']}\n\n"
-        f"Fundamental Summary:\n{result['financial_summary']}\n\n"
+        # f"Fundamental Summary:\n{result['financial_summary']}\n\n"
         f"AI Summary:\n{result['response']}\n\n"
         f"Conversation so far:\n{history_text}\n\n"
         f"User question: {user_message}\n\n"
@@ -99,11 +99,11 @@ if st.session_state.analysis_result:
     st.write(result["technical_summary"])
     st.caption(f"Input sentiment score used: {st.session_state.market_sentiment_score:.1f}")
 
-    st.markdown("### Fundamental Analysis")
-    st.write(result["financial_summary"])
+    # st.markdown("### Fundamental Analysis")
+    # st.write(result["financial_summary"])
 
-    st.markdown("### AI Financial Summary")
-    st.write(result["response"])
+    # st.markdown("### AI Financial Summary")
+    # st.write(result["response"])
 
     st.markdown("---")
     st.markdown("### Chat about this analysis")
